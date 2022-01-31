@@ -1,0 +1,190 @@
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 350px; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  margin-left: -175px;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: hsl(355, 100%, 68%); /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: hsl(355, 100%, 68%); /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+#bigdiv {
+  justify-content: flex-start;
+  background-color: #121212;
+  width: 350px;
+  height: 70px;
+  overflow: hidden;
+  padding: 0;
+  margin-left: -175px;
+  margin-bottom: 50px;
+
+}
+#smalldiv {
+  height: 70px;
+  overflow: hidden;
+  margin-top: -70px;
+  margin-left: 70px;
+  padding: 0;
+
+}
+
+.info {
+  text-align: center;
+  margin-left: -100%;
+  font-family: "proxima-nova", sans-serif;
+}
+
+#image {
+  width: 70px;
+  height: 70px;
+  padding: 0;
+  margin-left: 0;
+  position: relative;
+  z-index: 5;
+}
+
+#image2 {
+  width: 70px;
+  height: 70px;
+  padding: 0;
+  position: relative;
+  margin-left: -74px;
+  z-index: 10;
+}
+
+
+body{
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+#artist {
+  color: hsl(355, 100%, 68%);
+  text-transform: uppercase;
+  font-family: "proxima-nova", sans-serif;
+  margin-top: 5px;
+  margin-left: 7px;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+#song {
+  
+  color: #ffffff;
+  font-size: 24px;
+  font-family: "proxima-nova", sans-serif;
+  margin-top: -5px;
+  margin-left: 7px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+p {
+  white-space: nowrap;
+}
+
+.scrolling {
+  animation: slide 20s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    /* left: 100%; */
+    transform: translateX(290px);
+}
+
+  100% {
+    /* left: -100%; */
+    transform: translateX(-100%);
+}
+}
+
+#SAVE {
+  background-color: hsl(355, 100%, 68%);
+  color: white;
+  padding: 10px 70px;
+  border-radius: 10px;
+  font-size: 30px;
+  text-transform: uppercase;
+  font-family: "proxima-nova", sans-serif;
+  margin-left: -100px;
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+#SAVE:hover {
+  opacity: 1; 
+  cursor: pointer;
+}
+
+#SITE {
+  margin-left: 50vw;
+  margin-top: 50vh;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+
+#BLACK {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#BOX {
+  background-color: white;
+  position: absolute;
+  top: 10vh;
+  left: 10vw;
+  height: 80vh;
+  width: 80vw;
+  z-index: 15;
+  overflow: scroll;
+}
+
+#TITLE {
+  text-align: center;
+  font-family: "proxima-nova", sans-serif;
+  font-size: 50px;
+  margin-top: 0px;
+}
+
+#COPY_TEXT {
+  margin-left: 10px;
+  font-family: "proxima-nova", sans-serif;
+}

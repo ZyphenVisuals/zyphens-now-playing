@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editor</title>
+  <link rel="stylesheet" href="EditorStyle.css">
+</head>
+<body>
+  <div ID=SITE>
+    <div id=CONTROLS>
+      <p class="info">Artist Size</p>
+      <input type="range" min="10" max="30" value="15" class="slider" id="artist_scale"> 
+      <p class="info">Song Size</p>
+      <input type="range" min="10" max="30" value="24" class="slider" id="song_scale">  
+      <p class="info">Spacing</p>
+      <input type="range" min="0" max="20" value="10" class="slider" id="spacing">  
+      <p class="info">Color</p>
+      <input type="range" min="0" max="355" value="355" class="slider" id="color">   
+    </div>
+    <br>
+    <div id=SAMPLE>
+      <div id=bigdiv>
+        <img id=image>
+        <img id=image2 src="Sample.jpg">
+        <div id=smalldiv>
+          <p id=artist>Matthew Koma</p>
+          <br>
+          <p id=song>Kisses Back</p>
+        </div>
+      </div>  
+    </div>
+    <a id=SAVE onclick="save()">Save</a>
+  </div>
+  <div id=BLACK>
+    <div id=BOX>
+      <p id=TITLE>Paste this text in SongStyle.css</p>
+      <p id=COPY_TEXT></p>
+    </div>
+  </div>
+</body>
+<script>
+  var artist_size = document.getElementById("artist_scale");
+  var song_size = document.getElementById("song_scale");
+  var spacing = document.getElementById("spacing");
+  var color = document.getElementById("color");
+
+  var artist_size_value = 15;
+  var song_size_value = 24;
+  var spacing_value = 10;
+  var color_value = 355;
+
+  artist_size.oninput = function() {
+    artist_size_value = this.value;
+    document.getElementById("artist").style.fontSize = this.value + 'px';
+  }
+
+  song_size.oninput = function() {
+    song_size_value = this.value;
+    document.getElementById("song").style.fontSize = this.value + 'px';
+  }
+
+  spacing.oninput = function() {
+    spacing_value = this.value;
+    document.getElementById("artist").style.marginBottom = this.value + 'px';
+  }
+
+  color.oninput = function() {
+    color_value = this.value;
+    document.getElementById("artist").style.color = "hsl(" + this.value + ", 100%, 68%)";
+  }
+
+  function save() {
+    document.getElementById("COPY_TEXT").innerHTML = `#bigdiv { <br>
+  justify-content: flex-start;<br>
+  background-color: #121212;<br>
+  width: 350px;<br>
+  height: 70px;<br>
+  overflow: hidden;<br>
+  margin-left: -500px;<br>
+  padding: 0;<br>
+
+
+}<br><br>
+#smalldiv {<br>
+  height: 70px;<br>
+  overflow: hidden;<br>
+  margin-top: -70px;<br>
+  margin-left: 70px;<br>
+  padding: 0;<br>
+
+}<br><br>
+
+#image {<br>
+  width: 70px;<br>
+  height: 70px;<br>
+  padding: 0;<br>
+  margin-left: 0;<br>
+  position: relative;<br>
+  z-index: 5;<br>
+}<br><br>
+
+#image2 {<br>
+  width: 70px;<br>
+  height: 70px;<br>
+  padding: 0;<br>
+  position: relative;<br>
+  margin-left: -74px;<br>
+  z-index: 10;<br>
+}<br><br>
+
+
+body{<br>
+  background-color: #ffffff;<br>
+  padding: 0 !important;<br>
+  margin: 0 !important;<br>
+}<br><br>
+
+#artist {<br>
+  color: hsl(`+color_value+`, 100%, 68%);<br>
+  text-transform: uppercase;<br>
+  font-family: "proxima-nova", sans-serif;<br>
+  margin-top: 5px;<br>
+  margin-left: 7px;<br>
+  font-weight: 600;<br>
+  font-size: `+artist_size_value+`px;<br>
+  margin-bottom: `+spacing_value+`px;<br>
+  display: inline-block;<br>
+}<br><br>
+
+#song {<br>
+  
+  color: #ffffff;<br>
+  font-size: `+song_size_value+`px;<br>
+  font-family: "proxima-nova", sans-serif;<br>
+  margin-top: -5px;<br>
+  margin-left: 7px;<br>
+  font-weight: bold;<br>
+  display: inline-block;<br>
+}<br>
+
+p {<br>
+  white-space: nowrap;<br>
+}<br>
+
+.scrolling {<br>
+  animation: slide 20s linear infinite;<br>
+}<br><br>
+
+@keyframes slide {<br>
+  0% {<br>
+    /* left: 100%; */<br>
+    transform: translateX(290px);<br>
+}<br><br>
+
+  100% {<br>
+    /* left: -100%; */<br>
+    transform: translateX(-100%);<br>
+}<br>
+}<br><br>
+`
+    document.getElementById("BLACK").style.opacity = 1;
+    document.getElementById("BLACK").style.pointerEvents = "all";
+  }
+</script>
+</html>
